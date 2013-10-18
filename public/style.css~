@@ -1,0 +1,46 @@
+#global{
+  width:770px;
+  margin:50px auto 0 auto;
+  background: #F5BCA9;
+}
+
+#usuario{
+  width: 570px;
+  position: relative;
+  height: 50px;
+  margin: 10;
+  padding: 10;
+  background: #6685CC;
+  color: #FFF;
+}
+
+#ordenador{
+  width: 570px;
+  position: relative;
+  height: 50px;
+  margin: 10;
+  padding: 10;
+  background: #FE2E2E;
+  color: #FFF;
+}
+
+#resultado{
+  width: 570px;
+  position: relative;
+  height: 50px;
+  margin: 10;
+  padding: 10;
+  background: #2EFE2E;
+  color: #FFF;
+}
+
+#boton{
+	font-size:14px;
+	font-family:Verdana,Helvetica;
+  font-weight:bold;
+  color:white;
+  background:#8258FA;
+  border:0px;
+  width:100px;
+  height:30px;
+}
