@@ -7,7 +7,7 @@ class AppTest < Test::Unit::TestCase
 	
 	def app
 		Rack::Builder.new do
-			run MyApp.new
+			run RockPaperScissors::App.new
 		end.to_app
 	end
 	
@@ -18,11 +18,11 @@ class AppTest < Test::Unit::TestCase
 	
 	def test_body
 		get "/"
-		assert_equal lat_response.body, 'Jugando a -> Piedra, Papel o Tijeras', "Body must be Jugando a -> Piedra, Papel o Tijeras"
+		assert last_response.body.include? ("Jugando a -> Piedra, Papel o Tijeras")
 	end
 	
 	def test_
-		get "/"
-		assert
+		get "/public/style.css"
+		assert last_response.ok?
 	end
 end
