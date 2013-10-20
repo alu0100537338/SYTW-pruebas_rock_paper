@@ -13,13 +13,16 @@ class AppTest < Test::Unit::TestCase
 	
 	def test_index
 		get "/"
-		
 		assert last_response.ok?
 	end
 	
 	def test_body
 		get "/"
+		assert_equal lat_response.body, 'Jugando a -> Piedra, Papel o Tijeras', "Body must be Jugando a..."
+	end
+	
+	def test_head
+		get "/"
 		
-		assert_equal lat_response.body, 'Hello', "body must be hello"
 	end
 end
