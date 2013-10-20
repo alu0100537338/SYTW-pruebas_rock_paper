@@ -1,10 +1,10 @@
-Practica 5 - Pruebas unitarias
-==============================
+Practica 5 - Pruebas unitarias y rspec
+======================================
 
 Enunciado
 ---------
 
-    Añadir Pruebas a Rock, Paper,Scissors (pruebas unitarias).
+    Añadir pruebas a Rock, Paper,Scissors.
     
 -----------------------------------------------------------------
 Jessica A. Ramos Villarreal - ETSII-ULL
