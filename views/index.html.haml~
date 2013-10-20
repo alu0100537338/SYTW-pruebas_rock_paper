@@ -6,15 +6,14 @@
     %link{:href => "/public/style.css", :rel => "stylesheet"}
   %body#global
     %center
-      %h1#usuario Usuario
+      %h1 Jugando a -> Piedra, Papel o Tijeras
+      %h2#usuario Usuario
       -throws.map do |x| 
         %a{:href=>"/?choice=#{x}"}
-          %p
           %button#boton #{x}
-          %p
-      %h1#ordenador Ordenador
+      %h2#ordenador Ordenador
       %h3=computer_throw
-      %h1#resultado Resultado
-      %h2=answer
+      %h2#resultado Resultado
+      %h3=answer
       
 
