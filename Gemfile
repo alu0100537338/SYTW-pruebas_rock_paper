@@ -7,3 +7,8 @@ gem "haml"
 group :development do
 	gem "pry-debugger", "~> 0.2.2"
 end
+
+group :test do
+	gem "rack-test"
+	gem "test-unit"
+end
