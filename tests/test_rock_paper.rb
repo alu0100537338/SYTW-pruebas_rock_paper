@@ -18,11 +18,11 @@ class AppTest < Test::Unit::TestCase
 	
 	def test_body
 		get "/"
-		assert_equal lat_response.body, 'Jugando a -> Piedra, Papel o Tijeras', "Body must be Jugando a..."
+		assert_equal lat_response.body, 'Jugando a -> Piedra, Papel o Tijeras', "Body must be Jugando a -> Piedra, Papel o Tijeras"
 	end
 	
-	def test_head
+	def test_
 		get "/"
-		
+		assert
 	end
 end
