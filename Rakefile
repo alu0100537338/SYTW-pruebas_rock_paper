@@ -4,8 +4,13 @@ task :default do
 end
 
 desc "Testing con pruebas unitarias"
-task :test do
+task :test_unit do
 	sh "ruby tests/test_rock_paper.rb"
+end
+
+desc "Testing con rspec"
+task :test_rspec do
+	sh "rspec spec/rsack/server_spec.rb"
 end
 
 desc "Piedra"
