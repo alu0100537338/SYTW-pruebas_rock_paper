@@ -1,7 +1,28 @@
 #global{
   width:770px;
-  margin:50px auto 0 auto;
-  background: #F5BCA9;
+  margin: 0 auto 0 auto;
+  background: url("img/authority-c.jpg");
+  background-repeat: no-repeat;
+}
+
+#titulo{
+  width: 770px;
+  position: relative;
+  height: 50px;
+  margin: 10;
+  padding: 1%;
+  background: #000;
+  color: #FFF;
+  outline-style: outset;
+  outline-color: #848484;
+}
+
+#oponente{
+	color: #FE2E2E;
+}
+
+#resul{
+	color: #04B404;
 }
 
 #usuario{
@@ -9,29 +30,35 @@
   position: relative;
   height: 50px;
   margin: 10;
-  padding: 10;
+  padding: 2% 0 0 0;
   background: #6685CC;
   color: #FFF;
+  outline-style: outset;
+  outline-color: #6685CC;
 }
 
 #ordenador{
   width: 570px;
   position: relative;
   height: 50px;
-  margin: 10;
-  padding: 10;
+  margin: 3% 0 3% 0;
+  padding: 2% 0 0 0;
   background: #FE2E2E;
   color: #FFF;
+  outline-style: outset;
+  outline-color: #FE2E2E;
 }
 
 #resultado{
   width: 570px;
   position: relative;
   height: 50px;
-  margin: 10;
-  padding: 10;
+  margin: 5% 0 3% 0;
+  padding: 2% 0 0 0;
   background: #2EFE2E;
   color: #FFF;
+  outline-style: outset;
+  outline-color: #2EFE2E;
 }
 
 #boton{
@@ -43,4 +70,6 @@
   border:0px;
   width:100px;
   height:30px;
+  outline-style: outset;
+  outline-color: #8258FA;
 }

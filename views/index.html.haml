@@ -4,16 +4,20 @@
     %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}
     %title Piedra, papel, tijeras
     %link{:href => "/public/style.css", :rel => "stylesheet"}
+    %link{:rel => "icon", :type => "image/png", :href => "/public/img/favicon2.jpg"}
   %body#global
     %center
-      %h1 Jugando a -> Piedra, Papel o Tijeras
+      %h1#titulo Jugando a -> Piedra, Papel o Tijeras
       %h2#usuario Usuario
+      %br
       -throws.map do |x| 
         %a{:href=>"/?choice=#{x}"}
           %button#boton #{x}
+      %br
+      %br
       %h2#ordenador Ordenador
-      %h3=computer_throw
+      %h3#oponente=computer_throw
       %h2#resultado Resultado
-      %h3=answer
+      %h3#resul=answer
       
 
