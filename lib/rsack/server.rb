@@ -1,4 +1,4 @@
-module Rscak
+module Rsack
 
 	class Server
 		def call (env)
