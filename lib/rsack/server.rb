@@ -2,7 +2,7 @@ module Rscak
 	class Server
 		def call(env)
 			response = Rack::Response.new
-			response.write("Hello world!")
+			response.status = 200
 			response.finish
 		end
 	end
