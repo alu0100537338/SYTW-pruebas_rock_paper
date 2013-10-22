@@ -37,4 +37,45 @@ describe Rsack::Server do
 			response.body.include?("Empate! It's something!")
 		end
 	end
+	
+	context "/?choice='Papel'" do
+		it "Should win" do
+			computer_throw = 'Piedra'
+			response = server.get("/?choice='Papel'")
+			response.body.include?("Ganaste!")
+		end
+		
+		it "Should lose" do
+			computer_throw = 'Tijeras'
+			response = server.get("/?choice='Papel'")
+			response.body.include?("Oh no!")
+		end
+		
+		it "Should tie" do
+			computer_throw = 'Papel'
+			response = server.get("/?choice='Papel'")
+			response.body.include?("Empate! It's something!")
+		end
+	end
+	
+	context "/?choice='Tijeras'" do
+		it "Should win" do
+			computer_throw = 'Papel'
+			response = server.get("/?choice='Tijeras'")
+			response.body.include?("Ganaste!")
+		end
+		
+		it "Should lose" do
+			computer_throw = 'Piedra'
+			response = server.get("/?choice='Tijeras'")
+			response.body.include?("Oh no!")
+		end
+		
+		it "Should tie" do
+			computer_throw = 'Tijeras'
+			response = server.get("/?choice='Tijeras'")
+			response.body.include?("Empate! It's something!") 
+			
+		end
+	end
 end
