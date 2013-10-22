@@ -16,13 +16,19 @@ class AppTest < Test::Unit::TestCase
 		assert last_response.ok?
 	end
 	
-	def test_body
+	def test_title
 		get "/"
-		assert_equal last_response.body, 'Jugando a -> Piedra, Papel o Tijeras', "Body must be Jugando a -> Piedra, Papel o Tijeras"
+		assert_match "<title> Piedra, papel o tijeras </title>", last_response.header
 	end
 	
-	def test_
+	def test_body
+		get "/"
+		assert last_response.body.include? ("Jugando a -> Piedra, Papel o Tijeras")
+	end
+	
+	def test_style
 		get "/public/style.css"
 		assert last_response.ok?
 	end
+	
 end

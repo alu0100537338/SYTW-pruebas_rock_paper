@@ -11,5 +11,10 @@ describe Rsack::Server do
 			response = server.get('/')
 			response.status.should == 200
 		end
+		
+		it "should include Jugando a -> Piedra, Papel o Tijeras" do
+			response = server.get('/')
+			response.body.should include ("Jugando a -> Piedra, Papel o Tijeras")
+		end
 	end
 end

@@ -16,13 +16,19 @@ class AppTest < Test::Unit::TestCase
 		assert last_response.ok?
 	end
 	
+	def test_head
+		get "/"
+		last_response.header == 'Content-Type'
+	end
+	
 	def test_body
 		get "/"
 		assert last_response.body.include? ("Jugando a -> Piedra, Papel o Tijeras")
 	end
 	
-	def test_
+	def test_style
 		get "/public/style.css"
 		assert last_response.ok?
 	end
+	
 end
