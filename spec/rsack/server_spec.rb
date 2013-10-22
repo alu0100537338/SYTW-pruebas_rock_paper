@@ -7,14 +7,74 @@ describe Rsack::Server do
 	end
 	
 	context '/' do
-		it "should return a 200 code" do
+		it "Should return a 200 code" do
 			response = server.get('/')
 			response.status.should == 200
 		end
 		
-		it "should include Jugando a -> Piedra, Papel o Tijeras" do
+		it "Should include Jugando a -> Piedra, Papel o Tijeras" do
 			response = server.get('/')
-			response.body.should include ("Jugando a -> Piedra, Papel o Tijeras")
+			response.body == 'Jugando a -> Piedra, Papel o Tijeras'
+		end
+	end
+	
+	context "/?choice='Piedra'" do
+		it "Should win" do
+			computer_throw = 'Tijeras'
+			response = server.get("/?choice='Piedra'")
+			response.body.include?("Ganaste!")
+		end
+		
+		it "Should lose" do
+			computer_throw = 'Papel'
+			response = server.get("/?choice='Piedra'")
+			response.body.include?("Oh no!")
+		end
+		
+		it "Should tie" do
+			computer_throw = 'Piedra'
+			response = server.get("/?choice='Piedra'")
+			response.body.include?("Empate! It's something!")
+		end
+	end
+	
+	context "/?choice='Papel'" do
+		it "Should win" do
+			computer_throw = 'Piedra'
+			response = server.get("/?choice='Papel'")
+			response.body.include?("Ganaste!")
+		end
+		
+		it "Should lose" do
+			computer_throw = 'Tijeras'
+			response = server.get("/?choice='Papel'")
+			response.body.include?("Oh no!")
+		end
+		
+		it "Should tie" do
+			computer_throw = 'Papel'
+			response = server.get("/?choice='Papel'")
+			response.body.include?("Empate! It's something!")
+		end
+	end
+	
+	context "/?choice='Tijeras'" do
+		it "Should win" do
+			computer_throw = 'Papel'
+			response = server.get("/?choice='Tijeras'")
+			response.body.include?("Ganaste!")
+		end
+		
+		it "Should lose" do
+			computer_throw = 'Piedra'
+			response = server.get("/?choice='Tijeras'")
+			response.body.include?("Oh no!")
+		end
+		
+		it "Should tie" do
+			computer_throw = 'Tijeras'
+			response = server.get("/?choice='Tijeras'")
+			response.body.include?("Empate! It's something!")
 		end
 	end
 end
