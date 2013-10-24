@@ -19,5 +19,19 @@
       %h3#oponente=computer_throw
       %h2#resultado Resultado
       %h3#resul=answer
-      
-
+      %h2#historial Historial
+    
+      %form#form
+        %label{:for => "title"} Victorias:
+        %input{name: "twin", type: "text", value: "#{win}"}
+        %br
+        %label{:for => "title"} Derrotas:
+        %input{name: "twin", type: "text", value: "#{lose}"}
+        %br
+        %label{:for => "title"} Empates:
+        %input{name: "twin", type: "text", value: "#{tie}"}
+        %br
+        %label{:for => "title"} Partidas:
+        %input{name: "twin", type: "text", value: "#{play}"}
+      %br
+      %br
