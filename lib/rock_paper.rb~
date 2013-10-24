@@ -72,7 +72,7 @@ module RockPaperScissors
       computer_throw = @throws.sample
       
       if !@throws.include?(player_throw)
-      	aux = "No olvides elegir elmento!"
+      	"No olvides elegir elmento!"
       else
       	computer_throw = @throws.sample
       	self.play= self.play + 1
@@ -98,7 +98,6 @@ module RockPaperScissors
 	
 			resultado = 
 			{
-				:aux => aux,
 				:choose => @choose,
 				:answer => answer,
 				:throws => @throws,
