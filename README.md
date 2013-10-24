@@ -4,7 +4,8 @@ Practica 5 - Pruebas unitarias y rspec
 Enunciado
 ---------
 
-    Añadir pruebas a Rock, Paper,Scissors.
+Añadir pruebas a Rock, Paper,Scissors ademas de gestionar las sesiones y cookies de
+las partidas jugadas.
     
     
 Resolucion
