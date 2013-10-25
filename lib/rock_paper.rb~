@@ -3,6 +3,8 @@ require 'rack/response'
 require 'haml'
 require 'thin'
 require 'rack'
+
+p "No olvides acceder a la ejecucion a traves de http://localhost:8080"
   
 module RockPaperScissors
   class App 

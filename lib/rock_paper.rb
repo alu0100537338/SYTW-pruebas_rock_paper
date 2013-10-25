@@ -92,9 +92,9 @@ module RockPaperScissors
        
        if answer == "Ganaste! #{player_throw} vence a #{computer_throw}! Bite the dust #{computer_throw}!"
        	 self.won= self.won + 1
-       elsif answer = "Oh no! #{computer_throw} vence a #{player_throw}! Try again, don't let #{computer_throw} win!"
+       elsif answer == "Oh no! #{computer_throw} vence a #{player_throw}! Try again, don't let #{computer_throw} win!"
        	 self.lost= self.lost + 1
-       elsif answer = "Empate! It's something!"
+       elsif answer == "Empate! It's something!"
        	 self.tie= self.tie + 1
        end
 	
