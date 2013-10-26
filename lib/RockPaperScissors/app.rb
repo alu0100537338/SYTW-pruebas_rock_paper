@@ -13,7 +13,7 @@ module RockPaperScissors
       @app = app
       @content_type = :html
       @defeat = {'Piedra' => 'Tijeras', 'Papel' => 'Piedra', 'Tijeras' => 'Papel'}
-      @throws = ''
+      @throws = @defeat.keys
       
     end
 
@@ -68,39 +68,38 @@ module RockPaperScissors
     	
       req = Rack::Request.new(env)
 
-      #req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
-			@throws = @defeat.keys
+      req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
+
       player_throw = req.GET["choice"]
+      computer_throw = @throws.sample
       
       if !@throws.include?(player_throw)
-      	inicial = "No olvides elegir elmento!"
+      	"No olvides elegir elmento!"
       else
       	computer_throw = @throws.sample
       	self.play= self.play + 1
       end
       
-      answer = 
-      					if (player_throw != nil && computer_throw != nil)
+      answer = if (player_throw != nil && computer_throw != nil)
           				if (player_throw == computer_throw)
           					"Empate! It's something!"
         					elsif computer_throw == @defeat[player_throw]
-          					"Ganaste!"
+          					"Ganaste! #{player_throw} vence a #{computer_throw}! Bite the dust #{computer_throw}!"
         					else
           					"Oh no! #{computer_throw} vence a #{player_throw}! Try again, don't let #{computer_throw} win!"
         					end
         				end
-        				
-       if answer == "Ganaste!"
+       
+       if answer == "Ganaste! #{player_throw} vence a #{computer_throw}! Bite the dust #{computer_throw}!"
        	 self.won= self.won + 1
-       elsif answer == "Oh no! Try again!"
+       elsif answer = "Oh no! #{computer_throw} vence a #{player_throw}! Try again, don't let #{computer_throw} win!"
        	 self.lost= self.lost + 1
        elsif answer == "Empate! It's something!"
-       	 self.tied= self.tied + 1
+       	 self.tie= self.tie + 1
        end
 	
 			resultado = 
 			{
-				:inicial => inicial,
 				:choose => @choose,
 				:answer => answer,
 				:throws => @throws,
@@ -115,5 +114,3 @@ module RockPaperScissors
     end # call
   end   # App
 end     # RockPaperScissors
-  
-

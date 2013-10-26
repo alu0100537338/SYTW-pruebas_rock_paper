@@ -9,15 +9,17 @@
     %center
       %h1#titulo Jugando a -> Piedra, Papel o Tijeras
       %h2#usuario Usuario
-      %br
-      -throws.map do |x| 
-        %a{:href=>"/?choice=#{x}"}
-          %button#boton #{x}
+      -if ( inicial == 'No olvides elegir elmento!')
+        %br
+        -throws.map do |x| 
+          %a{:href=>"/?choice=#{x}"}
+            %button#boton #{x}
       %br
       %br
       %h2#ordenador Ordenador
       %h3#oponente=computer_throw
       %h2#resultado Resultado
+     
       %h3#resul=answer
       %h2#historial Historial
     
@@ -31,7 +33,7 @@
         %label{:for => "title"} Empates:
         %input{name: "twin", type: "text", value: "#{tie}"}
         %br
-        %label{:for => "title"} Partidas jugadas:
+        %label{:for => "title"} Partidas:
         %input{name: "twin", type: "text", value: "#{play}"}
       %br
       %br

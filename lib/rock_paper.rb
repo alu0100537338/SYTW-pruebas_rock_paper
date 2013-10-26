@@ -13,7 +13,7 @@ module RockPaperScissors
       @app = app
       @content_type = :html
       @defeat = {'Piedra' => 'Tijeras', 'Papel' => 'Piedra', 'Tijeras' => 'Papel'}
-      @throws = @defeat.keys
+      @throws = ''
       
     end
 
@@ -68,38 +68,39 @@ module RockPaperScissors
     	
       req = Rack::Request.new(env)
 
-      req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
-
+      #req.env.keys.sort.each { |x| puts "#{x} => #{req.env[x]}" }
+			@throws = @defeat.keys
       player_throw = req.GET["choice"]
-      computer_throw = @throws.sample
       
       if !@throws.include?(player_throw)
-      	"No olvides elegir elmento!"
+      	inicial = "No olvides elegir elmento!"
       else
       	computer_throw = @throws.sample
       	self.play= self.play + 1
       end
       
-      answer = if (player_throw != nil && computer_throw != nil)
+      answer = 
+      					if (player_throw != nil && computer_throw != nil)
           				if (player_throw == computer_throw)
           					"Empate! It's something!"
         					elsif computer_throw == @defeat[player_throw]
-          					"Ganaste! #{player_throw} vence a #{computer_throw}! Bite the dust #{computer_throw}!"
+          					"Ganaste!"
         					else
-          					"Oh no! #{computer_throw} vence a #{player_throw}! Try again, don't let #{computer_throw} win!"
+          					"Oh no! Try again!"
         					end
         				end
-       
-       if answer == "Ganaste! #{player_throw} vence a #{computer_throw}! Bite the dust #{computer_throw}!"
+        				
+       if answer == "Ganaste!"
        	 self.won= self.won + 1
-       elsif answer == "Oh no! #{computer_throw} vence a #{player_throw}! Try again, don't let #{computer_throw} win!"
+       elsif answer == "Oh no! Try again!"
        	 self.lost= self.lost + 1
        elsif answer == "Empate! It's something!"
-       	 self.tie= self.tie + 1
+       	 self.tied= self.tied + 1
        end
 	
 			resultado = 
 			{
+				:inicial => inicial,
 				:choose => @choose,
 				:answer => answer,
 				:throws => @throws,

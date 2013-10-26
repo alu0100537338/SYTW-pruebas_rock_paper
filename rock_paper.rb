@@ -10,7 +10,6 @@ builder = Rack:: Builder.new do
     :secret => 'cookie',
     :expire_after => 30}
 
-
 	run RockPaperScissors::App.new
 end
 
@@ -20,5 +19,6 @@ use Rack::Server.start(
   :server => 'thin',
   :host => 'www.example.com'
 )
+
 
 

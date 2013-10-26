@@ -1,2 +1,2 @@
 require 'rack'
-require 'rsack/server'
+require 'rsack/server.rb'

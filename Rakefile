@@ -9,8 +9,8 @@ task :test_unit do
 end
 
 desc "Testing con rspec"
-task :test_rspec do
-	sh "rspec spec/rsack/server_spec.rb"
+task :spec do
+	sh "rspec --color --format documentation spec/RockPaperScissors/server_spec.rb"
 end
 
 desc "Piedra"

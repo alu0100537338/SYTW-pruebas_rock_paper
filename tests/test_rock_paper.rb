@@ -1,14 +1,13 @@
 require "test/unit"
 require "rack/test"
-require './rock_paper.rb'
+require './lib/rock_paper.rb'
 
 class AppTest < Test::Unit::TestCase
 	include Rack::Test::Methods
 	
 	def app
-		Rack::Builder.new do
-			run RockPaperScissors::App.new
-		end.to_app
+			Rack::Session::Cookie.new(RockPaperScissors::App.new,
+																:secret => 'cookie')
 	end
 	
 	def test_index
@@ -23,7 +22,7 @@ class AppTest < Test::Unit::TestCase
 	
 	def test_body
 		get "/"
-		assert last_response.body.include? ("Jugando a -> Piedra, Papel o Tijeras")
+		assert last_response.body.include? ("chuchu -> Piedra, Papel o Tijeras")
 	end
 	
 	def test_style
