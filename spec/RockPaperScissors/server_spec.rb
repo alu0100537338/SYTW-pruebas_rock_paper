@@ -18,5 +18,13 @@ describe RockPaperScissors::App do
 			response.body == 'Jugando a -> Piedra, Papel o Tijeras'
 		end
 		
+		it "Should include Usuario" do
+			response = app.get('/')
+			response.body.should match('Usuario')
+		end
 		
+		it "" do
+		
+		end
+	end
 end
