@@ -17,65 +17,6 @@ describe RockPaperScissors::App do
 			response = app.get('/')
 			response.body == 'Jugando a -> Piedra, Papel o Tijeras'
 		end
-	end
-	
-	context "/?choice='Piedra'" do
-		it "Should win" do
-			computer_throw = 'Tijeras'
-			response = app.get("/?choice='Piedra'")
-			response.body.include?("Ganaste!")
-		end
 		
-		it "Should lose" do
-			computer_throw = 'Papel'
-			response = app.get("/?choice='Piedra'")
-			response.body.include?("Oh no!")
-		end
 		
-		it "Should tie" do
-			computer_throw = 'Piedra'
-			response = app.get("/?choice='Piedra'")
-			response.body.include?("Empate! It's something!")
-		end
-	end
-	
-	context "/?choice='Papel'" do
-		it "Should win" do
-			computer_throw = 'Piedra'
-			response = app.get("/?choice='Papel'")
-			response.body.include?("Ganaste!")
-		end
-		
-		it "Should lose" do
-			computer_throw = 'Tijeras'
-			response = app.get("/?choice='Papel'")
-			response.body.include?("Oh no!")
-		end
-		
-		it "Should tie" do
-			computer_throw = 'Papel'
-			response = app.get("/?choice='Papel'")
-			response.body.include?("Empate! It's something!")
-		end
-	end
-	
-	context "/?choice='Tijeras'" do
-		it "Should win" do
-			computer_throw = 'Papel'
-			response = app.get("/?choice='Tijeras'")
-			response.body.include?("Ganaste!")
-		end
-		
-		it "Should lose" do
-			computer_throw = 'Piedra'
-			response = app.get("/?choice='Tijeras'")
-			response.body.include?("Oh no!")
-		end
-		
-		it "Should tie" do
-			computer_throw = 'Tijeras'
-			response = app.get("/?choice='Tijeras'")
-			response.body.include?("Empate! It's something!")
-		end
-	end
 end
