@@ -23,8 +23,19 @@ describe RockPaperScissors::App do
 			response.body.should match('Usuario')
 		end
 		
-		it "" do
+		it "Should include Ordenador" do
+			response = app.get('/')
+			response.body.should match('Usuario')
+		end
 		
+		it "Should include Resultado" do
+			response = app.get('/')
+			response.body.should match('Resultado')
+		end
+		
+		it "Should include Historial" do
+			response = app.get('/')
+			response.body.should match('Historial')
 		end
 	end
 end
